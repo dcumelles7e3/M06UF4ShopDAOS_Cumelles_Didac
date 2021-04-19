@@ -1,0 +1,10 @@
+
+£
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(øä‰ñıÿÿÿÿ8§Ö¯Œ/
+f
+java:S2095!"IUse try-with-resources or close this "MongoClient" in a "finally" clause.(œÎ¯£8òÈã¯Œ/
+K
+java:S1481"")Remove this unused "myDB" local variable.(Ñ¯áÂúÿÿÿÿ8Ø‹á¯Œ/
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(š‹Ù¤ùÿÿÿÿ8§Ö¯Œ/
+Z
+java:S1854""8Remove this useless assignment to local variable "myDB".(Ñ¯áÂúÿÿÿÿ8Ø‹á¯Œ/

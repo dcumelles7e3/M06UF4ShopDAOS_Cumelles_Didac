@@ -1,0 +1,20 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Àáğ£øÿÿÿÿ
+K
+java:S1068")Remove this unused "ofici" private field.(ïÖƒûÿÿÿÿ8í£ƒ¯Œ/
+I
+java:S1068",Remove this unused "comissio" private field.(§á¨„8Åùˆ¯Œ/
+N
+java:S1068",Remove this unused "emplatID" private field.(±º•°ıÿÿÿÿ8–’¯Œ/
+b	java:S107"AConstructor has 8 parameters, which is greater than 7 authorized.(­ßìûÿÿÿÿ8âÉŠ¯Œ/
+K
+java:S1068")Remove this unused "depNo" private field.(‡ÌŠ•ıÿÿÿÿ8Åùˆ¯Œ/
+G
+java:S1068"*Remove this unused "cognom" private field.(÷Ì±·8í£ƒ¯Œ/
+G
+java:S1068"*Remove this unused "salari" private field.(³ãšš8Åùˆ¯Œ/
+K
+java:S1068")Remove this unused "capId" private field.(²šìíıÿÿÿÿ8…‹„¯Œ/
+N
+java:S1068",Remove this unused "dataAlta" private field.(ŸÊ§úÿÿÿÿ8¥æ†¯Œ/
+X	java:S125"<This block of commented-out lines of code should be removed.(êæÇ‰8•Àı®Œ/
