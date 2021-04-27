@@ -7,8 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="M06UF4ShopDAOS_Plantilla" />
-        <module name="M06UF4ShopDAOS" />
+        <module name="M06UF4Empleat" />
         <module name="M06UF4ShopDAOS_Solucio" />
+        <module name="M06UF4ShopDAOS" />
       </profile>
     </annotationProcessing>
   </component>

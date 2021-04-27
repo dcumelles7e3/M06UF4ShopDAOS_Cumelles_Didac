@@ -54,6 +54,24 @@ public class Proveidor implements Serializable, PropertyChangeListener{
         this.observacions = observacions;
     }
 
+    @Override
+    public String toString() {
+        return "Proveidor{" +
+                "idProveidor=" + idProveidor +
+                ", nom='" + nom + '\'' +
+                ", adreca='" + adreca + '\'' +
+                ", ciutat='" + ciutat + '\'' +
+                ", estat='" + estat + '\'' +
+                ", codiPostal='" + codiPostal + '\'' +
+                ", area=" + area +
+                ", telefon='" + telefon + '\'' +
+                ", idProducte=" + idProducte +
+                ", quantitat=" + quantitat +
+                ", limitCredit=" + limitCredit +
+                ", observacions='" + observacions + '\'' +
+                '}';
+    }
+
     public int getIdProveidor() {
         return idProveidor;
     }
@@ -154,6 +172,9 @@ public class Proveidor implements Serializable, PropertyChangeListener{
     public void propertyChange(PropertyChangeEvent propertyChangeEvent) {
         System.out.println("[PROVEIDOR] - Event capturat, fent insert de proveidor");
         ProveidorDAO mysql = new ProveidorImpSQL();
-        mysql.insertar(this);
+        System.out.println("Quantitat anterior: "+quantitat);
+        quantitat = quantitat + (int) propertyChangeEvent.getNewValue();
+        System.out.println("Quantitat actual: "+quantitat);
+        mysql.modificarQuantitat(this);
     }
 }

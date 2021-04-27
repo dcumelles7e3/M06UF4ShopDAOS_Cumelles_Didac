@@ -13,13 +13,12 @@ import java.io.Serializable;
  */
 public class Producte implements Serializable {
 
-    private PropertyChangeSupport propertySupport;
-
-    int idProducte;
-    String descripcio;
-    int stockActual;
-    int stockMinim;
-    float preu;
+    private transient PropertyChangeSupport propertySupport;
+    private int idProducte;
+    private String descripcio;
+    private int stockActual;
+    private int stockMinim;
+    private float preu;
 
     public Producte() {
         this.propertySupport = new PropertyChangeSupport(this);
@@ -32,6 +31,17 @@ public class Producte implements Serializable {
         this.stockMinim = stockMinim;
         this.preu = preu;
         this.propertySupport = new PropertyChangeSupport(this);
+    }
+
+    @Override
+    public String toString() {
+        return "Producte{" +
+                ", idProducte=" + idProducte +
+                ", descripcio='" + descripcio + '\'' +
+                ", stockActual=" + stockActual +
+                ", stockMinim=" + stockMinim +
+                ", preu=" + preu +
+                '}';
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
@@ -61,8 +71,13 @@ public class Producte implements Serializable {
         return stockActual;
     }
 
+    //Llançar el property change
     public void setStockActual(int stockActual) {
+        int value = this.stockActual;
         this.stockActual = stockActual;
+        if (this.stockActual < this.getStockMinim()) {
+            this.propertySupport.firePropertyChange("stockAct", value, this.stockActual);
+        }
     }
 
     public int getStockMinim() {

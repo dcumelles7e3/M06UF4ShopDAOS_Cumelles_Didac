@@ -1,16 +1,13 @@
 package m06.uf4.DAO.proveidor;
 
-import m06.uf4.DAO.empleat.Empleat;
-import m06.uf4.DAO.empleat.EmpleatDAO;
-
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProveidorImpSerializable implements ProveidorDAO {
     File file;
     public ProveidorImpSerializable() {
-        file = new File("proveidors.dat");
+        file = new File("shopFitxers/proveidors.dat");
     }
 
     @Override
@@ -20,7 +17,17 @@ public class ProveidorImpSerializable implements ProveidorDAO {
 
     @Override
     public int insertarLlista(List<Proveidor> provs) {
-        return 0;
+        try {
+            ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(file));
+            for (Proveidor prov : provs) {
+                outputStream.writeObject(prov);
+            }
+            outputStream.close();
+            System.out.printf("Inserits %d proveidors\n",provs.size());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return provs.size();
     }
 
     @Override
@@ -45,7 +52,25 @@ public class ProveidorImpSerializable implements ProveidorDAO {
 
     @Override
     public List<Proveidor> consultarLlista() {
-        return null;
+        List<Proveidor> llista = new ArrayList<>();
+        Proveidor emp;
+        ObjectInputStream objectInputStream = null;
+        try {
+            objectInputStream = new ObjectInputStream(new FileInputStream(file));
+            while (true) {
+                emp = (Proveidor) objectInputStream.readObject();
+                llista.add(emp);
+            }
+        } catch (Exception e) {
+            try {
+                objectInputStream.close();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+            System.out.println("Fi del fitxer");
+        }
+
+        return llista;
     }
 
     @Override

@@ -7,7 +7,7 @@ import java.util.List;
 public class EmpleatImpSerializable implements EmpleatDAO {
     File file;
     public EmpleatImpSerializable() {
-        file = new File("empleats.dat");
+        file = new File("shopFitxers/empleats.dat");
     }
 
     @Override
@@ -18,7 +18,16 @@ public class EmpleatImpSerializable implements EmpleatDAO {
 
     @Override
     public int insertarLlista(List<Empleat> emps) {
-        //IMPLEMENTAR
+        try {
+            ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(file));
+            for (Empleat emp : emps) {
+                outputStream.writeObject(emp);
+            }
+            System.out.printf("Inserits %d empleats\n",emps.size());
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return emps.size();
     }
 
@@ -49,7 +58,22 @@ public class EmpleatImpSerializable implements EmpleatDAO {
     @Override
     public List<Empleat> consultarLlista() {
         List<Empleat> llista = new ArrayList<>();
-        //IMPLEMENTAR
+        Empleat emp;
+        ObjectInputStream objectInputStream = null;
+        try {
+            objectInputStream = new ObjectInputStream(new FileInputStream(file));
+            while (true) {
+                emp = (Empleat) objectInputStream.readObject();
+                llista.add(emp);
+            }
+        } catch (Exception e) {
+            try {
+                objectInputStream.close();
+            } catch (IOException ioException) {
+                ioException.printStackTrace();
+            }
+            System.out.println("Fi del fitxer");
+        }
 
         return llista;
     }

@@ -13,10 +13,10 @@ import java.sql.SQLException;
 public class DAOFactorySQL extends DAOFactory {
 
     static Connection conexion = null;
-    static final String URL = "";
+    static final String URL = "jdbc:mysql://192.168.56.105:3306/";
     static final String BD = "shop";
-    static final String USER = "";
-    static final String PASSWORD = "";
+    static final String USER = "user1";
+    static final String PASSWORD = "password1";
 
     public DAOFactorySQL() {
     }

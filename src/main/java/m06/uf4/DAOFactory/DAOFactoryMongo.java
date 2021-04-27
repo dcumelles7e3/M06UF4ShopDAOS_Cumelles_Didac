@@ -17,12 +17,11 @@ import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
 
 public class DAOFactoryMongo extends DAOFactory {
-
     static MongoDatabase db = null;
-    static final String HOST = "cluster0.AAAAAAAA.mongodb.net";
+    static final String HOST = "cluster0.fedjg.mongodb.net";
     static final String DATABASE = "shop";
-    static final String USER = "";
-    static final String PASSWORD = "";
+    static final String USER = "invitat";
+    static final String PASSWORD = "M06password";
 
     public DAOFactoryMongo() {}
 
